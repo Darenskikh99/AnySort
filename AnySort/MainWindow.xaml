@@ -1,0 +1,28 @@
+﻿<Window x:Class="AnySort.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnySort"
+        d:DataContext="{d:DesignInstance Type=local:ApplicationVievModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="850">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="BtnCreateNewArray" Content="Создать новый массив" FontSize="30"
+                Grid.Row="1" Grid.Column="0" Command="{Binding AddCommand}"/>
+        <Button x:Name="BtnSortArray" Content="Сортировать массив" FontSize="30"
+                Grid.Row="1" Grid.Column="1" Command="{Binding SortCommand}"/>
+        <TextBlock x:Name="TBArrayBeforeSort" Grid.Row="0" Grid.Column="0" FontSize="30"
+                   DataContext="{Binding MyArray}" Text="{Binding StringNewArray, UpdateSourceTrigger = PropertyChanged}"/>
+        <TextBlock x:Name="TBArrayAfterSort" Grid.Row="0" Grid.Column="1" FontSize="30"
+                   DataContext="{Binding MyArray}" Text="{Binding StringSortedArray, UpdateSourceTrigger = PropertyChanged}"/>
+    </Grid>
+</Window>
